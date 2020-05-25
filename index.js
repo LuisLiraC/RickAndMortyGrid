@@ -54,6 +54,10 @@ function showCharacterDetails(event) {
     <div class="modal__content" id="modal__content">
       <img src=${character.image} alt="" class="modal__img" id="modal__img">
       <h1>${character.name}</h1>
+      <p>Especie: ${character.species}</p>
+      <p>Genero: ${character.gender}</p>
+      <p>Ubicación: ${character.location.name}</p>
+      <p>Estatus: ${character.status}</p>
       <button id="modal__close">Cerrar</button>
     </div>
   `
