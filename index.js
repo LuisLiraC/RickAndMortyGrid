@@ -33,11 +33,11 @@ function renderCharacters(chars) {
       </div>
     `
   })
-  addListeners()
+  addListenersDetailsBtns()
 }
 
 
-function addListeners() {
+function addListenersDetailsBtns() {
   // Una vez agregados los templates voy a seleciono todos los botones para
   // agregar los listeners que abrirán el modal
   document.querySelectorAll('.card__button')
@@ -48,7 +48,7 @@ function addListeners() {
 function showCharacterDetails(event) {
   // Extraigo el id del botón al que se le da click para saber de qué personaje es y lo busco en el array
   const id = parseInt(event.target.id)
-  const [character] = characters.filter(ch => ch.id === id)
+  const [character] = getCharacter(id)
   // Inserto la información del personaje en el modal
   modal.innerHTML = `
     <div class="modal__content" id="modal__content">
@@ -61,14 +61,23 @@ function showCharacterDetails(event) {
       <button id="modal__close">Cerrar</button>
     </div>
   `
-  modal.classList.toggle('modal--active')
-
+  toggleModal()
   // Una vez creado el modal, traigo su botón y le agrego un listener para cerrarlo
-  hideModalBtn = document.getElementById('modal__close')
-  hideModalBtn.addEventListener('click', hideModal)
+  addListenerModalBtn()
 }
 
 
-function hideModal() {
+function getCharacter(id) {
+  return characters.filter(ch => ch.id === id)
+}
+
+
+function toggleModal() {
   modal.classList.toggle('modal--active')
+}
+
+
+function addListenerModalBtn() {
+  hideModalBtn = document.getElementById('modal__close')
+  hideModalBtn.addEventListener('click', toggleModal)
 }

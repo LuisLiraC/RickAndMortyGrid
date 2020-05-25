@@ -53,12 +53,12 @@ body {
 }
 
 .modal__content {
-    background-color: rgb(241, 241, 241);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    text-align: center;
+  background-color: rgb(241, 241, 241);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  text-align: center;
 }
 
 .modal__content img {
-    border-radius: calc(var(--border-radius) / 2);
+  border-radius: calc(var(--border-radius) / 2);
 }
